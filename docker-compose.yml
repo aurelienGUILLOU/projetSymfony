@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  php:
+    container_name: projet_symfony_php
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: "sqlite:///var/www/var/data.db"
+
+volumes:
+  data_db:
