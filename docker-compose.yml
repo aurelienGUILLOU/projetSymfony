@@ -12,11 +12,6 @@ services:
       - "8000:8000"
     environment:
       DATABASE_URL: "sqlite:///var/www/var/data.db"
-  sqlite3:
-    image: nouchka/sqlite3:latest
-    stdin_open: true
-    tty: true
-    volumes:
-      - ./db/:/root/db/
+
 volumes:
   data_db:
