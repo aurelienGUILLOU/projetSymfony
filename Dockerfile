@@ -1,8 +1,8 @@
 FROM php:8.2-fpm
 
 RUN apt-get update && apt-get install -y \
-       libzip-dev \
-       zip \
+      libzip-dev \
+      zip \
       wget \
       git \
       sqlite3 \
@@ -14,8 +14,10 @@ RUN apt-get update && apt-get install -y \
 ADD ./docker/install-composer.sh /install-composer.sh
 RUN chmod +x /install-composer.sh && /install-composer.sh && rm -f /install-composer.sh
 RUN composer self-update
-RUN wget https://get.symfony.com/cli/installer -O - | bash
+RUN wget https://get.symfony.com/cli/installer -O - | bash && \
+    mv /root/.symfony*/bin/symfony /usr/local/bin/symfony
 RUN export PATH="$HOME/.symfony5/bin:$PATH"
+RUN docker-php-ext-install pdo pdo_mysql pdo_sqlite zip
 RUN mkdir /db
 RUN /usr/bin/sqlite3 /db/test.db
 
