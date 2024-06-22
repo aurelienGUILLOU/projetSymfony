@@ -11,7 +11,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: "sqlite:///var/www/var/data.db"
+      DATABASE_URL: "sqlite:///%kernel.project_dir%/var/data.db"
 
 volumes:
   data_db:
