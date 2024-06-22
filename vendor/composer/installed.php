@@ -340,6 +340,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'symfony/flex' => array(
+            'pretty_version' => 'v2.4.5',
+            'version' => '2.4.5.0',
+            'reference' => 'b0a405f40614c9f584b489d54f91091817b0e26e',
+            'type' => 'composer-plugin',
+            'install_path' => __DIR__ . '/../symfony/flex',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/framework-bundle' => array(
             'pretty_version' => 'v7.1.1',
             'version' => '7.1.1.0',
